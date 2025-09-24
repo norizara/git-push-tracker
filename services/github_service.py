@@ -31,10 +31,6 @@ async def fetch_contribution_stats(username: str):
             "last_day": f"Error {response.status_code}",
         }
 
-    # Debug: Save HTML for inspection
-    with open("debug_github.html", "w", encoding="utf-8") as f:
-        f.write(response.text)
-
     soup = BeautifulSoup(response.text, "html.parser")
     
     # Try different selectors for GitHub's contribution graph
